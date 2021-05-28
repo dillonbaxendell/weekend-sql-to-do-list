@@ -1,4 +1,4 @@
-# To-Do
+# MY GAME PLAN
 
 *** SERVER SETUP FILE STRUCTURE ***
 [X] Make .gitignore file in root folder
@@ -39,11 +39,142 @@
     [X] Static files
     [X] Create PORT
     [X] Start listening for PORT connection
-[] index.html
+[X] index.html
     [X] Wire frame created (html:5)
     [X] Rename document to match as desired
 [X] client.js
     [X] console.log('js loaded');
     [X] DOM Ready on readyNow
     [X] readyNow function created
+
+# THE NITTY-GRITTY
+The part of the To-Do List that tackles the nitty-gritty of the project and handles the requirements. Take the time to Plan. This. Out.
+
+**Here are the specific components for the challenge:**
+
+**Create a front end experience that allows a user to create a Task.**
+    What does this look like?
+        [] We need some kind of form, inputs:
+            [] Name of Task
+            [] Priority
+            [] Due Date
+            [] Complete (checkbox?)
+
+**When the Task is created, it should be stored inside of a database (SQL)**
+    [] Create a database, name: todo_list
+    [] Create table of "tasks"
+        [] Columns include:
+            [] ID - Make this SERIAL and PRIMARY KEY
+            [] name_of_task
+            [] priority
+            [] due_date
+            [] complete
+    [] Create database.sql in this project so people can easily access it
+    [] Connect the database to this project
+        [] Create a pool.js in modules folder (to free up space on server.js)
+        [] configuration created
+        [] pg sourced in
+        [] pool created
+        [] export pool to the server
+        [] make sure pool is accessible to any routers
+
+**Whenever a Task is created the front end should refresh to show all tasks that need to be completed.**
+    * CLIENT SIDE:
+        GET:
+            [] Create a function to refreshTasks
+            [] GET, ajax call using url '/tasks'
+            [] Create renderTasks function to render the tasks received to the DOM
+            [] .then created
+            [] .catch with error created
+        POST:
+            [] Upon hitting the button "Add Task" in the handleSubmit function:
+            [] Create addTask function that POSTS the task using url: '/tasks' to send a taskToAdd
+            [] .then created
+            [] refreshTasks
+            [] .catch with error created
+
+    * SERVER SIDE (in router?):
+        GET:
+            [] GET data from database to send back to client
+            [] .then created
+            [] .catch with error created
+        POST:
+            [] INSERTS newTask into the database table
+            [] .then created
+            [] .catch with error created
+
+**Each Task should have an option to 'Complete' or 'Delete'.**
+    [] Create buttons in index.html 
+        [] Mark as complete (again, do we want this as a checkbox?)
+        [] Delete 
+    [] Make sure these append to the DOM upon submission of a newTask
+    [] Create a handleDelete function in client.js that:
+        [] calls deleteTask function, which should:
+
+        * CLIENT SIDE
+            [] make an ajax, DELETE call through url: '/tasks/ID
+            [] .then created
+            [] refreshTasks again to update the DOM
+            [] .catch with error created
+
+        * SERVER SIDE (in router?)
+            [] Grabs the taskToDelete (targeted from the ID) and deletes it using queryText (SQL)
+            [] Ultimately deleting this specific ID# task from the database table
+            [] .then created
+            [] .catch with error created
+
+**When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.**
+    [] Create a style class or ID that replaces the style upon marking a task as complete
+        [] What does this look like?
+            [] Strike-through?
+            [] Turns light gray?
+            [] Goes into a different div of "Completed Tasks"?
+    [] Logic created for visual representation
+
+**Whether or not a Task is complete should also be stored in the database.**
+    [] Make this column in the database a BOOLEAN?, complete: true, false
+
+**Deleting a Task should remove it both from the front end as well as the Database.**
+    [] Make sure logic is setup correctly to check this requirement off
+
+### STYLING
+
+**Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:**
+  - background color of the page
+    [] Pick a minimalist looking style? - I like the idea of it being clean-looking and minimalist-looking
+
+  - font family and size
+    [] Lowercase text for header is intriguing to me - makes it look clean too
+
+  - text color & or background color of tasks *to show whether or not they have been completed*
+    [] Does the background color of the task change based on priority?
+
+
+
+
+
+
+
+  ## Stretch Goals
+
+For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+
+- `feature-styling-bootstrap` 
+
+    - [ ]  Add Bootstrap to the front end and style it up!
+      -  Buttons -- make the creation buttons and completion buttons green and the delete red.
+      -  Inputs -- make your text inputs styled in the bootstrap way
+      -  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
+
+- `feature-confirm-delete`
+
+    - [ ]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+        - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
+
+- `feature-ordering-task-query` 
+
+    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
     
+- `feature-time-completed` 
+
+    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.  
