@@ -54,7 +54,7 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 
 **Create a front end experience that allows a user to create a Task.**
     What does this look like?
-        [] We need some kind of form, inputs:
+        [X] We need some kind of form, inputs:
             [X] title (task name)
             [X] priority
             [X] dueDate
@@ -83,11 +83,11 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 **Whenever a Task is created the front end should refresh to show all tasks that need to be completed.**
     * CLIENT SIDE:
         GET:
-            [] Create a function to refreshTasks
-            [] GET, ajax call using url '/tasks'
-            [] Create renderTasks function to render the tasks received to the DOM
-            [] .then created
-            [] .catch with error created
+            [X] Create a function to refreshTasks
+            [X] GET, ajax call using url '/tasks'
+            [X] Create renderTasks function to render the tasks received to the DOM
+            [X] .then created
+            [X] .catch with error created
         POST:
             [] Upon hitting the button "Add Task" in the handleSubmit function:
             [] Create addTask function that POSTS the task using url: '/tasks' to send a taskToAdd
