@@ -12,6 +12,7 @@ function readyNow () {
     // Click Listeners
     // load buttons to be ready to function if clicked
     $( '#submit' ).on( 'click', handleSubmit );
+    $( '#taskDeck' ).on( 'click', '.deleteBtn', handleDelete );
 
     // Call functions upon document load
     refreshTasks();
