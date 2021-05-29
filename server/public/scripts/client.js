@@ -11,6 +11,7 @@ function readyNow () {
 
     // Click Listeners
     // load buttons to be ready to function if clicked
+    $( '#submit' ).on( 'click', handleSubmit );
 
     // Call functions upon document load
     refreshTasks();
@@ -62,11 +63,51 @@ function refreshTasks () {
 }
 
 
-
-
-
 // POST
+function handleSubmit () {
+    console.log( 'clicked submit!' );
+    console.log( $( '#taskTitle' ).val() );
 
+    //grab the values of each input criteria
+    let title = $( '#taskTitle' ).val();
+    let priority = $( '#priority' ).val();
+    let dueDate = $( '#dueDate' ).val();
+    let notes = $( '#notes' ).val();
+    let isComplete = $( '#isComplete' ).val();
+
+    //create an object of a newTask with the above variables
+    let newTask = {
+        title: title,
+        priority: priority,
+        dueDate: dueDate,
+        notes: notes,
+        isComplete: isComplete
+    };
+
+    console.log( newTask );
+    addTask( newTask );
+};
+
+// Adds the newTask to the database
+function addTask( taskToAdd ) {
+    console.log( 'in addTask', taskToAdd );
+
+    $.ajax({
+        method: 'POST',
+        url: '/tasks',
+        //needs a data variable to POST
+        data: taskToAdd
+    }).then( response => {
+        console.log( 'Response from server: ', response );
+        //refresh the tasks to update the DOM with the newTask
+        refreshTasks();
+    })
+    .catch( error => {
+        console.log( 'Error in POST ', error );
+        //alert if unable to add task
+        alert('Unable to add task at this time. Please try again later.');
+    });
+};
 
 
 
