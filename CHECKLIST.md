@@ -55,10 +55,11 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 **Create a front end experience that allows a user to create a Task.**
     What does this look like?
         [] We need some kind of form, inputs:
-            [X] Task Name
-            [X] Priority
-            [X] Due Date
-            [X] Complete (checkbox?)
+            [X] title (task name)
+            [X] priority
+            [X] dueDate
+            [X] notes
+            [X] isComplete (checkbox?)
 
 **When the Task is created, it should be stored inside of a database (SQL)**
     [X] Create a database, name: todo_list
@@ -76,7 +77,8 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
         [X] pg sourced in
         [X] pool created
         [X] export pool to the server
-        [] make sure pool is accessible to any routers
+        [X] make sure pool is accessible to any routers
+            [X] task.router.js
 
 **Whenever a Task is created the front end should refresh to show all tasks that need to be completed.**
     * CLIENT SIDE:

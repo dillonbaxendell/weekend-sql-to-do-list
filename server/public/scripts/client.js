@@ -15,3 +15,25 @@ function readyNow () {
 };
 
 
+// GET
+
+
+
+
+
+
+// POST
+
+
+
+
+
+
+// PUT
+
+
+
+
+
+
+// DELETE
