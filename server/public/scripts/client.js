@@ -13,6 +13,7 @@ function readyNow () {
     // load buttons to be ready to function if clicked
     $( '#submit' ).on( 'click', handleSubmit );
     $( '#taskDeck' ).on( 'click', '.deleteBtn', handleDelete );
+    $( '#taskDeck' ).on( 'click', '.isComplete', handleComplete);
 
     // Call functions upon document load
     refreshTasks();
@@ -38,7 +39,7 @@ function renderTasks ( tasks ) {
                 <td id="priority">${task.priority}</td>
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
-                <td><button class="isComplete" data-id="${task.id}">Mark Complete</button></td>
+                <td><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}>Mark Complete</button></td>
                 <td><button class="deleteBtn" data-id="${task.id}">DELETE</button></td>
                 
       </tr> 
@@ -115,7 +116,27 @@ function addTask( taskToAdd ) {
 
 
 // PUT
+function handleComplete () {
+    console.log( 'clicked complete button' );
 
+    let taskId = $(this).data("id");
+    let taskComplete = $(this).data("complete");
+  
+    $.ajax({
+      method:'PUT',
+      url: `/tasks/${taskId}`,
+      data: {
+        taskID: taskComplete
+      }
+    }).then( response => {
+      console.log('Marked complete/incomplete');
+
+      refreshTasks();
+    })
+    .catch(err =>{
+      alert(`Something went wrong. Please try again`, err);
+    })
+}
 
 
 
