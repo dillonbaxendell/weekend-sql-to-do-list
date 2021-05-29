@@ -38,9 +38,9 @@ function renderTasks ( tasks ) {
                 <td id="priority">${task.priority}</td>
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
-                <td id="isComplete">${task.isComplete}</td>
+                <td><button class="isComplete" data-id="${task.id}">Mark Complete</button></td>
                 <td><button class="deleteBtn" data-id="${task.id}">DELETE</button></td>
-                <td><button class="editBtn" data-id="${task.id}">EDIT</button></td>
+                
       </tr> 
         `); 
     }
