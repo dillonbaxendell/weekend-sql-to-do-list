@@ -121,7 +121,27 @@ function addTask( taskToAdd ) {
 
 
 // DELETE
+function handleDelete () {
+    console.log( 'clicked Delete!' );
 
+    let taskID = $(this).data("id");
+
+    deleteTask( taskID );
+}
+
+function deleteTask ( taskID ) {
+    console.log( 'in deleteTask' );
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskID}`
+    }).then( response => {
+        console.log( 'Deleted Task ID: ', taskID );
+
+        //refreshTasks to update the DOM after deletion
+        refreshTasks();
+    });
+}
 
 
 
