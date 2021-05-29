@@ -55,21 +55,21 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 **Create a front end experience that allows a user to create a Task.**
     What does this look like?
         [] We need some kind of form, inputs:
-            [] Name of Task
-            [] Priority
-            [] Due Date
-            [] Complete (checkbox?)
+            [X] Task Name
+            [X] Priority
+            [X] Due Date
+            [X] Complete (checkbox?)
 
 **When the Task is created, it should be stored inside of a database (SQL)**
-    [] Create a database, name: todo_list
-    [] Create table of "tasks"
-        [] Columns include:
-            [] ID - Make this SERIAL and PRIMARY KEY
-            [] name_of_task
-            [] priority
-            [] due_date
-            [] complete
-    [] Create database.sql in this project so people can easily access it
+    [X] Create a database, name: todo_list
+    [X] Create table of "tasks"
+        [X] Columns include:
+            [X] ID - Make this SERIAL and PRIMARY KEY
+            [X] title (of task)
+            [X] priority
+            [X] dueDate
+            [X] isComplete
+    [X] Create database.sql in this project so people can easily access it
     [] Connect the database to this project
         [] Create a pool.js in modules folder (to free up space on server.js)
         [] configuration created
