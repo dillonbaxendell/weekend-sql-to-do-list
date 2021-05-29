@@ -28,8 +28,26 @@ taskRouter.get( '/', ( req, res ) => {
 
 
 // POST
+// Adds a new task to the list of todos
+// Request body must be a task object with all needed data inputs.
+taskRouter.post( '/', ( req, res ) => {
+    let newTask = req.body;
+    console.log( 'Adding task: ', newTask );
 
+    let queryText = `INSERT INTO "tasks" ("title", "priority", "dueDate", "notes", "isComplete")
+                   VALUES ($1, $2, $3, $4, $5);`;
 
+    let values = [ newTask.title, newTask.priority, newTask.dueDate, newTask.notes, newTask.isComplete ];
+
+    pool.query( queryText, values )
+    .then( result => {
+        res.sendStatus( 201 );
+    })
+    .catch( error => {
+        console.log( 'Error adding new task', error );
+        res.sendStatus( 500 );
+    })
+})
 
 
 

@@ -28,7 +28,7 @@
           <div class="modal-body">
               <form>
 
-                <label for="cars">priority level</label>
+                <label for="priority">priority level</label>
                 <select name="priority" id="priority">
                     <option value="urgent">urgent</option>
                     <option value="high">high</option>
@@ -36,14 +36,14 @@
                     <option value="low">low</option>
                   </select>
 
-                  <label for="due-date">due date</label>
-                  <input type="date" id="due-date" name="trip-start">
+                  <label for="dueDate">due date</label>
+                  <input type="date" id="dueDate" name="trip-start" value=>
 
                   <label for="notes">notes</label>
                   <input type="text" id="notes" placeholder="pickup ready at 3:30pm, 2nd Ave location...">
 
-                  <label for="complete-checkbox">task complete</label>
-                  <input type="checkbox" id="complete-checkbox">
+                  <label for="isComplete">task complete</label>
+                  <input type="checkbox" id="isComplete">
 
               </form>
           </div>
@@ -62,7 +62,7 @@
     </header>
     <form>
         <div id="initial-form">
-            <input type="text" id="task form-control form-control-lg" placeholder="pick up dry cleaning, clean garage, etc..." style="width:90vh">
+            <input type="text" id="taskTitle" placeholder="pick up dry cleaning, clean garage, etc..." style="width:90vh">
             <button type="button" class="button btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">New Task</button>
         </div>
     </form>

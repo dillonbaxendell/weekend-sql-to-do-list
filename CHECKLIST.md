@@ -97,9 +97,9 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 
     * SERVER SIDE (in router?):
         GET:
-            [] GET data from database to send back to client
-            [] .then created
-            [] .catch with error created
+            [X] GET data from database to send back to client
+            [X] .then created
+            [X] .catch with error created
         POST:
             [] INSERTS newTask into the database table
             [] .then created
