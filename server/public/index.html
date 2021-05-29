@@ -8,9 +8,20 @@
     <script src="./scripts/client.js"></script>
     <link rel="stylesheet" href="./vendors/bootstrap.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>To-Do List</title>
+    <title>todo.list</title>
 </head>
-<body>
+<body class="container">
+    <header>
+        <h1 class="display-1">todo.list</h1>
+        <p class="lead">a task manager</p>
+    </header>
+    <form>
+        <div id="initial-form">
+            <input type="text" id="form-control form-control-lg" placeholder="pick up dry cleaning, clean garage, etc..." style="width:90vh">
+            <button type="button" id="new-task" data-toggle="modal" data-target="#ModalLoginForm" class="button btn btn-success btn-sm">Add New Task</button>
+        </div>
+    </form>
+    <div id="ModalLoginForm" class="modal fade">
     
 </body>
 </html>
