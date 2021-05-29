@@ -47,7 +47,7 @@ taskRouter.post( '/', ( req, res ) => {
         console.log( 'Error adding new task', error );
         res.sendStatus( 500 );
     })
-})
+});
 
 
 
@@ -60,7 +60,25 @@ taskRouter.post( '/', ( req, res ) => {
 
 
 // DELETE
+taskRouter.delete( '/:id', ( req, res ) => {
+    //grab the id of the task to delete from the params
+    let taskToDelete = req.params.id;
+    console.log( 'Task to delete: ', taskToDelete );
 
+    const queryText = `DELETE FROM "tasks" WHERE "tasks".id = $1`
+
+    pool.query( queryText, [taskToDelete] )
+    .then( response => {
+        console.log( 'Deleted task with ID# ', taskToDelete );
+
+        res.send( 200 );
+    })
+    .catch( error => {
+        console.log( 'Oops, you got an error while deleting!', error );
+
+        res.sendStatus( 500 );
+    });
+});
 
 
 module.exports = taskRouter

@@ -108,16 +108,16 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 **Each Task should have an option to 'Complete' or 'Delete'.**
     [] Create buttons in index.html 
         [] Mark as complete (again, do we want this as a checkbox?)
-        [] Delete 
-    [] Make sure these append to the DOM upon submission of a newTask
-    [] Create a handleDelete function in client.js that:
-        [] calls deleteTask function, which should:
+        [X] Delete 
+    [X] Make sure these append to the DOM upon submission of a newTask
+    [X] Create a handleDelete function in client.js that:
+        [X] calls deleteTask function, which should:
 
         * CLIENT SIDE
-            [] make an ajax, DELETE call through url: '/tasks/ID
-            [] .then created
-            [] refreshTasks again to update the DOM
-            [] .catch with error created
+            [X] make an ajax, DELETE call through url: '/tasks/ID
+            [X] .then created
+            [X] refreshTasks again to update the DOM
+            [X] .catch with error created
 
         * SERVER SIDE (in router?)
             [] Grabs the taskToDelete (targeted from the ID) and deletes it using queryText (SQL)

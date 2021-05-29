@@ -12,6 +12,7 @@ function readyNow () {
     // Click Listeners
     // load buttons to be ready to function if clicked
     $( '#submit' ).on( 'click', handleSubmit );
+    $( '#taskDeck' ).on( 'click', '.deleteBtn', handleDelete );
 
     // Call functions upon document load
     refreshTasks();
@@ -121,7 +122,27 @@ function addTask( taskToAdd ) {
 
 
 // DELETE
+function handleDelete () {
+    console.log( 'clicked Delete!' );
 
+    let taskID = $(this).data("id");
+
+    deleteTask( taskID );
+}
+
+function deleteTask ( taskID ) {
+    console.log( 'in deleteTask' );
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskID}`
+    }).then( response => {
+        console.log( 'Deleted Task ID: ', taskID );
+
+        //refreshTasks to update the DOM after deletion
+        refreshTasks();
+    });
+}
 
 
 
