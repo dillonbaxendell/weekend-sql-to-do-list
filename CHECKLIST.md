@@ -120,10 +120,10 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] .catch with error created
 
         * SERVER SIDE (in router?)
-            [] Grabs the taskToDelete (targeted from the ID) and deletes it using queryText (SQL)
-            [] Ultimately deleting this specific ID# task from the database table
-            [] .then created
-            [] .catch with error created
+            [X] Grabs the taskToDelete (targeted from the ID) and deletes it using queryText (SQL)
+            [X] Ultimately deleting this specific ID# task from the database table
+            [X] .then created
+            [X] .catch with error created
 
 **When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.**
     [] Create a style class or ID that replaces the style upon marking a task as complete
