@@ -8,20 +8,83 @@
     <script src="./scripts/client.js"></script>
     <link rel="stylesheet" href="./vendors/bootstrap.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>todo.list</title>
 </head>
 <body class="container">
+<!-- Modal HTML Markup -->
+<div class="container">
+    <!-- Trigger the modal with a button -->
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">add a new task</h4>
+          </div>
+          <div class="modal-body">
+              <form>
+
+                <label for="cars">priority level</label>
+                <select name="priority" id="priority">
+                    <option value="urgent">urgent</option>
+                    <option value="high">high</option>
+                    <option value="medium">medium</option>
+                    <option value="low">low</option>
+                  </select>
+
+                  <label for="due-date">due date</label>
+                  <input type="date" id="due-date" name="trip-start">
+
+                  <label for="notes">notes</label>
+                  <input type="text" id="notes" placeholder="pickup ready at 3:30pm, 2nd Ave location...">
+
+                  <label for="complete-checkbox">task complete</label>
+                  <input type="checkbox" id="complete-checkbox">
+
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <header>
         <h1 class="display-1">todo.list</h1>
         <p class="lead">a task manager</p>
     </header>
     <form>
         <div id="initial-form">
-            <input type="text" id="form-control form-control-lg" placeholder="pick up dry cleaning, clean garage, etc..." style="width:90vh">
-            <button type="button" id="new-task" data-toggle="modal" data-target="#ModalLoginForm" class="button btn btn-success btn-sm">Add New Task</button>
+            <input type="text" id="task form-control form-control-lg" placeholder="pick up dry cleaning, clean garage, etc..." style="width:90vh">
+            <button type="button" class="button btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">New Task</button>
         </div>
     </form>
-    <div id="ModalLoginForm" class="modal fade">
+    <section>
+        <div>
+          <h3>tasks</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>task title</th>
+                <th>priority</th>
+                <th>due date</th>
+                <th>notes</th>
+                <th>task complete</th>
+              </tr>
+            </thead>
+            <tbody id="taskDeck">
+            </tbody>
+          </table>
+        </div>
+      </section>
+
     
 </body>
 </html>
