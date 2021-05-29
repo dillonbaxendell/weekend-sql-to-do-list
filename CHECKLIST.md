@@ -70,12 +70,12 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] dueDate
             [X] isComplete
     [X] Create database.sql in this project so people can easily access it
-    [] Connect the database to this project
-        [] Create a pool.js in modules folder (to free up space on server.js)
-        [] configuration created
-        [] pg sourced in
-        [] pool created
-        [] export pool to the server
+    [X] Connect the database to this project
+        [X] Create a pool.js in modules folder (to free up space on server.js)
+        [X] configuration created
+        [X] pg sourced in
+        [X] pool created
+        [X] export pool to the server
         [] make sure pool is accessible to any routers
 
 **Whenever a Task is created the front end should refresh to show all tasks that need to be completed.**
