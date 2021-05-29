@@ -89,11 +89,11 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] .then created
             [X] .catch with error created
         POST:
-            [] Upon hitting the button "Add Task" in the handleSubmit function:
-            [] Create addTask function that POSTS the task using url: '/tasks' to send a taskToAdd
-            [] .then created
-            [] refreshTasks
-            [] .catch with error created
+            [X] Upon hitting the button "Add Task" in the handleSubmit function:
+            [X] Create addTask function that POSTS the task using url: '/tasks' to send a taskToAdd
+            [X] .then created
+            [X] refreshTasks
+            [X] .catch with error created
 
     * SERVER SIDE (in router?):
         GET:
@@ -101,9 +101,9 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] .then created
             [X] .catch with error created
         POST:
-            [] INSERTS newTask into the database table
-            [] .then created
-            [] .catch with error created
+            [X] INSERTS newTask into the database table
+            [X] .then created
+            [X] .catch with error created
 
 **Each Task should have an option to 'Complete' or 'Delete'.**
     [] Create buttons in index.html 
