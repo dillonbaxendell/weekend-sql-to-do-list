@@ -35,7 +35,10 @@ function renderTasks ( tasks ) {
         //Declare pill and change the badge color based on priority level
         let pill;
 
-        if( task.priority === "high" ) {
+        if (task.priority === "urgent") { 
+            pill = 'bg-dark'
+        }    
+        else if ( task.priority === "high" ) {
             pill = 'bg-danger'
         }
         else if ( task.priority === "medium" ) {
