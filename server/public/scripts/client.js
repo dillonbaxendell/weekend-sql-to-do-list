@@ -15,6 +15,7 @@ function readyNow () {
     $( '#taskDeck' ).on( 'click', '.deleteBtn', handleDelete );
     $( '#taskDeck' ).on( 'click', '.isComplete', handleComplete );
 
+
     // Call functions upon document load
     refreshTasks();
     
@@ -32,7 +33,9 @@ function renderTasks ( tasks ) {
     // from the database
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
-        let completion;
+        let visual;
+
+
 
         
         // for each task, append a new row to the table
@@ -123,7 +126,6 @@ function addTask( taskToAdd ) {
 function handleComplete () {
     console.log( 'in handleComplete' );
 
-    console.log( $(this).data() );
 
     markAsComplete ( $(this).data("id"), $(this).data() );
 };

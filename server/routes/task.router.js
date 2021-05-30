@@ -8,7 +8,7 @@ const pool = require('../modules/pool');
 // GET
 taskRouter.get( '/', ( req, res ) => {
     //declare queryText to send to SQL
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "dueDate" ASC;';
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "title" ASC;';
 
     //access pool to send to database
     pool.query( queryText )

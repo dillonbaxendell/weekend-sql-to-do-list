@@ -134,10 +134,10 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
     [] Logic created for visual representation
 
 **Whether or not a Task is complete should also be stored in the database.**
-    [] Make this column in the database a BOOLEAN?, complete: true, false
+    [X] Make this column in the database a BOOLEAN?, complete: true, false
 
 **Deleting a Task should remove it both from the front end as well as the Database.**
-    [] Make sure logic is setup correctly to check this requirement off
+    [X] Make sure logic is setup correctly to check this requirement off
 
 ### STYLING
 

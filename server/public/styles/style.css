@@ -1,0 +1,5 @@
+.markedComplete {
+    background-color: #9eb5a8;
+    text-decoration: line-through;
+    font-style: italic;
+}
