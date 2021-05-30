@@ -53,7 +53,41 @@ taskRouter.post( '/', ( req, res ) => {
 
 
 // PUT
+taskRouter.put ( '/:id', (req, res) => {
+    console.log( `got to /tasks/id`, req.params.id, req.body.isComplete );
+    const taskId = req.params.id;
 
+    const isComplete = req.body.isComplete;
+
+    //what is this returning?
+    console.log( taskId, isComplete.complete );
+    
+
+    queryText = '';
+    
+    if ( isComplete.complete == 'true' ){
+        queryText = `UPDATE "tasks" SET "isComplete"=false WHERE "tasks".id = $1;`;
+    }
+    else if ( isComplete.complete == 'false' ){
+        queryText = `UPDATE "tasks" SET "isComplete"=true WHERE "tasks".id = $1;`;
+    }
+    else {
+        res.sendStatus( 500 )
+        return;
+    }
+
+    pool.query( queryText, [taskId] )
+    .then( response => {
+        console.log( response.rowCount );
+        res.sendStatus(202);
+    })
+    .catch ( err => {
+        console.log( 'error in PUT on server', err );
+        res.sendStatus( 500 )
+    });
+
+
+}); //end .put
 
 
 
