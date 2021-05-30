@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dillonbaxendell/weekend-sql-to-do-list#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pg": "^8.6.0"
+    "pg": "^8.6.0",
+    "sweetalert": "^2.1.2"
   }
 }

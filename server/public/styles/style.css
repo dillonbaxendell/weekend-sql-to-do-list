@@ -1,11 +1,23 @@
 .markedComplete {
-    background-color: #9eb5a8;
+    background-color: lightgray;
     text-decoration: line-through;
     font-style: italic;
 }
 
 
 body {
-    color: #ed8a68;
-    background-color: #f1e6cd;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#top {
+    text-align: center;
+    font-weight: bold;
+}
+
+#taskTable {
+    padding-top: 40px;
+}
+
+#todoHead {
+    color: tan;
 }

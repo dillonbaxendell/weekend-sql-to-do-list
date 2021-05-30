@@ -36,6 +36,17 @@ function renderTasks ( tasks ) {
         
         console.log( task.isComplete );
 
+        let pill;
+
+        if( task.priority === "high" ) {
+            pill = 'bg-danger'
+        }
+        else if ( task.priority === "medium" ) {
+            pill = 'bg-warning'
+        }
+        else if ( task.priority === "low" ) {
+            pill = 'bg-primary'
+        }
 
 
         if (task.isComplete === true ) {
@@ -47,7 +58,7 @@ function renderTasks ( tasks ) {
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
                 <td id="isComplete">${task.isComplete}</td>
-                <td id="${task.isComplete}"><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
+                <td id="${task.isComplete}"><button class="isComplete btn btn-success btn-sm" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
                 <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
                 
       </tr> 
@@ -57,11 +68,11 @@ function renderTasks ( tasks ) {
         $( '#taskDeck' ).append(`
         <tr id="edit">
             <td id="title">${task.title}</td>
-            <td id="priority">${task.priority}</td>
+            <td id="priority"><span class="badge ${pill}">${task.priority}</span></td>
             <td id="dueDate">${task.dueDate}</td>
             <td id="notes">${task.notes}</td>
             <td id="isComplete">${task.isComplete}</td>
-            <td id="${task.isComplete}"><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
+            <td id="${task.isComplete}"><button class="isComplete btn btn-secondary btn-sm" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
             <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
             
   </tr> 

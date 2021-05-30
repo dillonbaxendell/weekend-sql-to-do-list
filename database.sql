@@ -3,7 +3,7 @@ CREATE TABLE "tasks" (
 	"id" SERIAL PRIMARY KEY,
 	"title" VARCHAR (250) NOT NULL,
 	"priority" VARCHAR (250) NOT NULL,
-	"dueDate" DATE,
+	"dueDate" VARCHAR (250) NOT NULL,
 	"notes" VARCHAR (250) NOT NULL,
 	"isComplete" BOOLEAN DEFAULT FALSE
 );
