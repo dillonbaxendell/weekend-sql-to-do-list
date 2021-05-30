@@ -24,11 +24,8 @@ taskRouter.get( '/', ( req, res ) => {
 });
 
 
-
-
-
 // POST
-// Adds a new task to the list of todos
+// Adds a new task to the list of to-do's
 // Request body must be a task object with all needed data inputs.
 taskRouter.post( '/', ( req, res ) => {
     let newTask = req.body;
@@ -48,8 +45,6 @@ taskRouter.post( '/', ( req, res ) => {
         res.sendStatus( 500 );
     })
 });
-
-
 
 
 // PUT
@@ -90,9 +85,6 @@ taskRouter.put ( '/:id', (req, res) => {
 }); //end .put
 
 
-
-
-
 // DELETE
 taskRouter.delete( '/:id', ( req, res ) => {
     //grab the id of the task to delete from the params
@@ -114,5 +106,5 @@ taskRouter.delete( '/:id', ( req, res ) => {
     });
 });
 
-
+// Export the taskRouter to tie it to server.js
 module.exports = taskRouter

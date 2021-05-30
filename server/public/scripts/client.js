@@ -21,8 +21,7 @@ function readyNow () {
     
 };
 
-//TODO - figure out a way to have a checkbox in place of the isComplete table cell
-//TODO   what does that look like?
+
 function renderTasks ( tasks ) {
     console.log( 'in renderTasks' );
 
@@ -33,9 +32,7 @@ function renderTasks ( tasks ) {
     // from the database
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
-        
-        console.log( task.isComplete );
-
+        //Declare pill and change the badge color based on priority level
         let pill;
 
         if( task.priority === "high" ) {
@@ -48,7 +45,8 @@ function renderTasks ( tasks ) {
             pill = 'bg-primary'
         }
 
-
+        // TODO // Try to filter the complete tasks to the bottom of the list by 
+        // TODO // setting priority to an empty string
         if ( task.isComplete === true ) {
             task.priority = '';
         }
@@ -69,31 +67,31 @@ function renderTasks ( tasks ) {
                 <td id="${task.isComplete}"><button class="isComplete btn btn-success btn-sm" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
                 <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
                 
-      </tr> 
+             </tr> 
+         `); 
+        } 
+        else {
+            $( '#taskDeck' ).append(`
+            <tr id="edit">
+                <td id="title"><b>${task.title}</b></td>
+                <td id="priority"><span class="badge ${pill}">${task.priority}</span></td>
+                <td id="dueDate">${task.dueDate}</td>
+                <td id="notes">${task.notes}</td>
+                <td id="isComplete">${task.isComplete}</td>
+                <td id="${task.isComplete}"><button class="isComplete btn btn-secondary btn-sm" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
+                <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
+            </tr> 
         `); 
-    } 
-    else {
-        $( '#taskDeck' ).append(`
-        <tr id="edit">
-            <td id="title"><b>${task.title}</b></td>
-            <td id="priority"><span class="badge ${pill}">${task.priority}</span></td>
-            <td id="dueDate">${task.dueDate}</td>
-            <td id="notes">${task.notes}</td>
-            <td id="isComplete">${task.isComplete}</td>
-            <td id="${task.isComplete}"><button class="isComplete btn btn-secondary btn-sm" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
-            <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
-            
-  </tr> 
-    `); 
+        }
     }
-    }
-}
+};
 
 
 // GET
 function refreshTasks () {
     console.log( 'in refreshTasks' );
 
+    //Ajax call to grab tasks from database
     $.ajax({
         method: 'GET',
         url: '/tasks'
@@ -104,13 +102,12 @@ function refreshTasks () {
     }).catch( error => {
         console.log( 'Error occurred in GET: ', error );
     })
-}
+};
 
 
 // POST
 function handleSubmit () {
     console.log( 'clicked submit!' );
-    console.log( $( '#taskTitle' ).val() );
 
     //grab the values of each input criteria
     let title = $( '#taskTitle' ).val();
@@ -128,7 +125,7 @@ function handleSubmit () {
         isComplete: isComplete
     };
 
-    console.log( newTask );
+    //Call the addTask function with the newTask as the parameter
     addTask( newTask );
 };
 
@@ -136,6 +133,7 @@ function handleSubmit () {
 function addTask( taskToAdd ) {
     console.log( 'in addTask', taskToAdd );
 
+    //Ajax call to post the newTask to the database and retrieve it back in the DOM
     $.ajax({
         method: 'POST',
         url: '/tasks',
@@ -154,22 +152,23 @@ function addTask( taskToAdd ) {
 };
 
 
-
-
-
 // PUT
 function handleComplete () {
     console.log( 'in handleComplete' );
 
+    // Declare variable for clarity
+    let taskId = $(this).data("id");
+    let changeStatusTo = $(this).data();
 
-    markAsComplete ( $(this).data("id"), $(this).data() );
+    // Call markAsComplete function 
+    markAsComplete ( taskId, changeStatusTo );
 };
 
 
 function markAsComplete ( taskId, changeStatusTo ) {
     console.log( 'clicked complete button' );
 
-  
+    // Ajax call to update the completion status in the database
     $.ajax({
       method:'PUT',
       url: `/tasks/${taskId}`,
@@ -179,29 +178,30 @@ function markAsComplete ( taskId, changeStatusTo ) {
     }).then( response => {
       console.log('Marked complete!');
 
+      //refresh the DOM
       refreshTasks();
     })
     .catch(err =>{
       alert(`Something went wrong. Please try again`, err);
     })
-}
-
-
-
+};
 
 
 // DELETE
 function handleDelete () {
     console.log( 'clicked Delete!' );
 
+    // Declare variable for clarity
     let taskID = $(this).data("id");
 
+    // Call deleteTask with the declared variable as the parameter
     deleteTask( taskID );
 }
 
 function deleteTask ( taskID ) {
     console.log( 'in deleteTask' );
 
+    // Ajax call to delete the task in the database via it's ID number
     $.ajax({
         method: 'DELETE',
         url: `/tasks/${taskID}`
@@ -211,8 +211,4 @@ function deleteTask ( taskID ) {
         //refreshTasks to update the DOM after deletion
         refreshTasks();
     });
-}
-
-
-
-//? How do we get the time format to not display as Z000...etc.
+};

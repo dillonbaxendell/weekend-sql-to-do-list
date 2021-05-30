@@ -1,5 +1,23 @@
 # MY GAME PLAN
 
+/*
+THINGS TO DO IN THE FUTURE:
+
+SET UP CALENDAR/DATE INPUT FOR dueDate
+    - How do we get the time format to not display as Z000...etc.
+
+FIGURE OUT GETTING TASKS TO THE BOTTOM OF TABLE UPON COMPLETION
+
+EDIT MODAL TO LOOK CLEANER
+
+SORT BY FUNCTION?
+
+SWEET ALERT BEFORE DELETING A TASK
+
+ADD THE ABILITY TO RECORD WHEN A TASK WAS COMPLETED
+
+*/
+
 *** SERVER SETUP FILE STRUCTURE ***
 [X] Make .gitignore file in root folder
 [X] Make readme.md file in root folder (optional, but recommended)
@@ -30,7 +48,7 @@
     [X] pg
 [X] npm install installs ALL EXISTING libraries in package.json
     [X] add script "start": "node server/server.js" to package.json under scripts
-[] npm start if setup, will start server
+[X] npm start if setup, will start server
 
 *** INITIAL FILE ORGANIZATION ***
 [X] server.js
@@ -106,8 +124,8 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] .catch with error created
 
 **Each Task should have an option to 'Complete' or 'Delete'.**
-    [] Create buttons in index.html 
-        [] Mark as complete (again, do we want this as a checkbox?)
+    [X] Create buttons in index.html 
+        [X] Mark as complete (again, do we want this as a checkbox?)
         [X] Delete 
     [X] Make sure these append to the DOM upon submission of a newTask
     [X] Create a handleDelete function in client.js that:
@@ -126,12 +144,12 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
             [X] .catch with error created
 
 **When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.**
-    [] Create a style class or ID that replaces the style upon marking a task as complete
-        [] What does this look like?
-            [] Strike-through?
-            [] Turns light gray?
-            [] Goes into a different div of "Completed Tasks"?
-    [] Logic created for visual representation
+    [X] Create a style class or ID that replaces the style upon marking a task as complete
+        [X] What does this look like?
+            [X] Strike-through?
+            [X] Turns light gray?
+            [X] Goes into a different div of "Completed Tasks"?
+    [X] Logic created for visual representation
 
 **Whether or not a Task is complete should also be stored in the database.**
     [X] Make this column in the database a BOOLEAN?, complete: true, false
@@ -143,13 +161,13 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 
 **Use CSS styling to move the aesthetic of the page beyond the vanilla HTML look:**
   - background color of the page
-    [] Pick a minimalist looking style? - I like the idea of it being clean-looking and minimalist-looking
+    [X] Pick a minimalist looking style? - I like the idea of it being clean-looking and minimalist-looking
 
   - font family and size
-    [] Lowercase text for header is intriguing to me - makes it look clean too
+    [X] Lowercase text for header is intriguing to me - makes it look clean too
 
   - text color & or background color of tasks *to show whether or not they have been completed*
-    [] Does the background color of the task change based on priority?
+    [X] Does the background color of the task change based on priority?
 
 
 
@@ -159,24 +177,24 @@ The part of the To-Do List that tackles the nitty-gritty of the project and hand
 
   ## Stretch Goals
 
-For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+For each of your stretch goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
 
 - `feature-styling-bootstrap` 
 
-    - [ ]  Add Bootstrap to the front end and style it up!
-      -  Buttons -- make the creation buttons and completion buttons green and the delete red.
-      -  Inputs -- make your text inputs styled in the bootstrap way
-      -  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
+    - [X]  Add Bootstrap to the front end and style it up!
+        [X]  Buttons -- make the creation buttons and completion buttons green and the delete red.
+        [X]  Inputs -- make your text inputs styled in the bootstrap way
+        [X]  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
 
 - `feature-confirm-delete`
 
-    - [ ]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+    - []  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
         - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
 
 - `feature-ordering-task-query` 
 
-    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
+    - []  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
     
 - `feature-time-completed` 
 
-    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.  
+    - []  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.  
