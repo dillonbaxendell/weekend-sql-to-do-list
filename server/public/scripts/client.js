@@ -33,24 +33,40 @@ function renderTasks ( tasks ) {
     // from the database
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
-        let visual;
-
-
-
         
+        console.log( task.isComplete );
+
+
+
+        if (task.isComplete === true ) {
         // for each task, append a new row to the table
         $( '#taskDeck' ).append(`
-            <tr id="edit">
+            <tr id="edit" class="markedComplete">
                 <td id="title">${task.title}</td>
                 <td id="priority">${task.priority}</td>
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
                 <td id="isComplete">${task.isComplete}</td>
                 <td id="${task.isComplete}"><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
-                <td><button class="deleteBtn" data-id="${task.id}">DELETE</button></td>
+                <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
                 
       </tr> 
         `); 
+    } 
+    else {
+        $( '#taskDeck' ).append(`
+        <tr id="edit">
+            <td id="title">${task.title}</td>
+            <td id="priority">${task.priority}</td>
+            <td id="dueDate">${task.dueDate}</td>
+            <td id="notes">${task.notes}</td>
+            <td id="isComplete">${task.isComplete}</td>
+            <td id="${task.isComplete}"><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
+            <td><button class="deleteBtn button btn btn-danger btn-sm" data-id="${task.id}">DELETE</button></td>
+            
+  </tr> 
+    `); 
+    }
     }
 }
 
