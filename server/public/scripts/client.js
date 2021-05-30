@@ -13,6 +13,7 @@ function readyNow () {
     // load buttons to be ready to function if clicked
     $( '#submit' ).on( 'click', handleSubmit );
     $( '#taskDeck' ).on( 'click', '.deleteBtn', handleDelete );
+    $( '#taskDeck' ).on( 'click', '.isComplete', handleComplete );
 
     // Call functions upon document load
     refreshTasks();
@@ -31,6 +32,9 @@ function renderTasks ( tasks ) {
     // from the database
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
+        let completion;
+
+        
         // for each task, append a new row to the table
         $( '#taskDeck' ).append(`
             <tr id="edit">
@@ -39,8 +43,9 @@ function renderTasks ( tasks ) {
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
                 <td id="isComplete">${task.isComplete}</td>
+                <td id="${task.isComplete}"><button class="isComplete" data-id="${task.id}" data-complete="${task.isComplete}">✓</button></td>
                 <td><button class="deleteBtn" data-id="${task.id}">DELETE</button></td>
-                <td><button class="editBtn" data-id="${task.id}">EDIT</button></td>
+                
       </tr> 
         `); 
     }
@@ -115,7 +120,34 @@ function addTask( taskToAdd ) {
 
 
 // PUT
+function handleComplete () {
+    console.log( 'in handleComplete' );
 
+    console.log( $(this).data() );
+
+    markAsComplete ( $(this).data("id"), $(this).data() );
+};
+
+
+function markAsComplete ( taskId, changeStatusTo ) {
+    console.log( 'clicked complete button' );
+
+  
+    $.ajax({
+      method:'PUT',
+      url: `/tasks/${taskId}`,
+      data: {
+        isComplete: changeStatusTo
+      }
+    }).then( response => {
+      console.log('Marked complete!');
+
+      refreshTasks();
+    })
+    .catch(err =>{
+      alert(`Something went wrong. Please try again`, err);
+    })
+}
 
 
 
