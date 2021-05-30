@@ -8,7 +8,7 @@ const pool = require('../modules/pool');
 // GET
 taskRouter.get( '/', ( req, res ) => {
     //declare queryText to send to SQL
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "title" ASC;';
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "priority" ASC;';
 
     //access pool to send to database
     pool.query( queryText )
@@ -66,7 +66,7 @@ taskRouter.put ( '/:id', (req, res) => {
     queryText = '';
     
     if ( isComplete.complete == 'true' ){
-        queryText = `UPDATE "tasks" SET "isComplete"=false WHERE "tasks".id = $1;`;
+        queryText = `UPDATE "tasks" SET "isComplete"=false  WHERE "tasks".id = $1;`;
     }
     else if ( isComplete.complete == 'false' ){
         queryText = `UPDATE "tasks" SET "isComplete"=true WHERE "tasks".id = $1;`;

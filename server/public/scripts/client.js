@@ -49,11 +49,19 @@ function renderTasks ( tasks ) {
         }
 
 
+        if ( task.isComplete === true ) {
+            task.priority = '';
+        }
+        else {
+            task.priority;
+        }
+
+
         if (task.isComplete === true ) {
         // for each task, append a new row to the table
         $( '#taskDeck' ).append(`
             <tr id="edit" class="markedComplete">
-                <td id="title">${task.title}</td>
+                <td id="title"><b>${task.title}</b></td>
                 <td id="priority">${task.priority}</td>
                 <td id="dueDate">${task.dueDate}</td>
                 <td id="notes">${task.notes}</td>
@@ -67,7 +75,7 @@ function renderTasks ( tasks ) {
     else {
         $( '#taskDeck' ).append(`
         <tr id="edit">
-            <td id="title">${task.title}</td>
+            <td id="title"><b>${task.title}</b></td>
             <td id="priority"><span class="badge ${pill}">${task.priority}</span></td>
             <td id="dueDate">${task.dueDate}</td>
             <td id="notes">${task.notes}</td>
