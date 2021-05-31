@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 //Router variables
 const taskRouter = require('./routes/task.router.js');
+const { default: swal } = require('sweetalert');
 
 //make a server called app
 const app = express();
