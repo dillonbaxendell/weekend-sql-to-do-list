@@ -130,6 +130,13 @@ function handleSubmit () {
 
     //Call the addTask function with the newTask as the parameter
     addTask( newTask );
+
+    //Clear inputs
+   $( '#taskTitle' ).val('');
+   $( '#priority' ).val('');
+   $( '#dueDate' ).val('');
+   $( '#notes' ).val('');
+   $( '#isComplete' ).val('');
 };
 
 // Adds the newTask to the database

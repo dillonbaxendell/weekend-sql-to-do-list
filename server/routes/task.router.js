@@ -8,7 +8,7 @@ const pool = require('../modules/pool');
 // GET
 taskRouter.get( '/', ( req, res ) => {
     //declare queryText to send to SQL
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "priority" ASC;';
+    let queryText = 'SELECT * FROM "tasks";';
 
     //access pool to send to database
     pool.query( queryText )
@@ -106,5 +106,5 @@ taskRouter.delete( '/:id', ( req, res ) => {
     });
 });
 
-// Export the taskRouter to tie it to server.js
+// Export the taskRouter to tie it to server.js 
 module.exports = taskRouter
