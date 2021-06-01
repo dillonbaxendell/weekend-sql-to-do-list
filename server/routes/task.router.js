@@ -91,7 +91,7 @@ taskRouter.delete( '/:id', ( req, res ) => {
     let taskToDelete = req.params.id;
     console.log( 'Task to delete: ', taskToDelete );
 
-    const queryText = `DELETE FROM "tasks" WHERE "tasks".id = $1`
+    const queryText = `DELETE FROM "tasks" WHERE "tasks".id = $1;`;
 
     pool.query( queryText, [taskToDelete] )
     .then( response => {
